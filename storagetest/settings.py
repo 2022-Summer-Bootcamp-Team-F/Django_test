@@ -85,7 +85,7 @@ DATABASES = {
         'ENGINE': 'djongo',
         'CLIENT': {
             "host":"mongodb+srv://aaaa:aaaa@cluster0.agjfuoj.mongodb.net/?retryWrites=true&w=majority"
-            , "name" : "mysite",
+            , "name" : "storage",
             "authMechanism" : "SCRAM-SHA-1"
         }
     }
