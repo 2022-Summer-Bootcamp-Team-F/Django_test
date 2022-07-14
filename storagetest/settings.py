@@ -82,8 +82,12 @@ WSGI_APPLICATION = 'storagetest.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'djongo',
+        'CLIENT': {
+            "host":"mongodb+srv://aaaa:aaaa@cluster0.agjfuoj.mongodb.net/?retryWrites=true&w=majority"
+            , "name" : "mysite",
+            "authMechanism" : "SCRAM-SHA-1"
+        }
     }
 }
 
