@@ -7,3 +7,7 @@ class Image(models.Model):
 
     def __str__(self):
         return self.name
+
+class Image_URL(models.Model):
+    image_url = models.CharField(max_length=100)
+    host_id = models.CharField(max_length=10)
