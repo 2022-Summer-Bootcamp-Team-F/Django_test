@@ -153,4 +153,6 @@ DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 AWS_ACCESS_KEY_ID = my_settings.AWS_ACCESS_KEY_ID
 AWS_SECRET_ACCESS_KEY = my_settings.AWS_SECRET_ACCESS_KEY
 AWS_STORAGE_BUCKET_NAME = 'teamffacechange'
+AWS_REGION = 'ap-northeast-2'
+IMAGE_URL = "https://%s.s3.%s.amazonaws.com/" % (AWS_STORAGE_BUCKET_NAME, AWS_REGION)
 AWS_QUERYSTRING_AUTH = False
