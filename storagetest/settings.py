@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import os
+import my_settings
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -80,16 +81,7 @@ WSGI_APPLICATION = 'storagetest.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'djongo',
-        'CLIENT': {
-            "host":"mongodb+srv://aaaa:aaaa@cluster0.agjfuoj.mongodb.net/?retryWrites=true&w=majority"
-            , "name" : "storage",
-            "authMechanism" : "SCRAM-SHA-1"
-        }
-    }
-}
+DATABASES = my_settings.DATABASES
 
 
 # Password validation
@@ -145,7 +137,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
-AWS_ACCESS_KEY_ID = 'AKIASNEO4JVM7H3QHHT6'
-AWS_SECRET_ACCESS_KEY = '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'
+AWS_ACCESS_KEY_ID = my_settings.AWS_ACCESS_KEY_ID
+AWS_SECRET_ACCESS_KEY = my_settings.AWS_SECRET_ACCESS_KEY
 AWS_STORAGE_BUCKET_NAME = 'teamffacechange'
 AWS_QUERYSTRING_AUTH = False
