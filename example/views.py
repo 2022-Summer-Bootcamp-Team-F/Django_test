@@ -20,15 +20,12 @@ import boto3, uuid
 class im_url(APIView):
     def post(self, request):
         files = request.FILES.getlist('files')
-        host_id = request.GET.get('host_id')
         s3r = boto3.resource('s3', aws_access_key_id= AWS_ACCESS_KEY_ID, aws_secret_access_key= AWS_SECRET_ACCESS_KEY)
-        key = "%s" %(host_id)
 
         for file in files :
             file._set_name(str(uuid.uuid4()))
-            s3r.Bucket(AWS_STORAGE_BUCKET_NAME).put_object( Key=key+'/%s'%(file), Body=file, ContentType='jpg')
+            s3r.Bucket(AWS_STORAGE_BUCKET_NAME).put_object( Key='image/%s'%(file), Body=file, ContentType='jpg')
             Image_URL.objects.create(
-                image_url = IMAGE_URL+"%s/%s"%(host_id, file),
-                host_id = host_id
+                image_url = IMAGE_URL+"image/%s"%(file),
             )
         return Response({'message' : 'done'})
