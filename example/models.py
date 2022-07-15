@@ -9,4 +9,5 @@ class Image(models.Model):
         return self.name
 
 class Image_URL(models.Model):
+    pub_date = models.DateTimeField('date published', default=datetime.now, editable=False)
     image_url = models.CharField(max_length=100)
