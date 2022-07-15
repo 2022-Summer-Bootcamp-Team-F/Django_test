@@ -20,7 +20,7 @@ import boto3, uuid
 class im_url(APIView):
     def post(self, request):
         files = request.FILES.getlist('files')
-        host_id = request.GET.get('id')
+        host_id = request.GET.get('host_id')
         s3r = boto3.resource('s3', aws_access_key_id= AWS_ACCESS_KEY_ID, aws_secret_access_key= AWS_SECRET_ACCESS_KEY)
         key = "%s" %(host_id)
 
